@@ -1,6 +1,8 @@
 # Skids
 A Fortnite Community Skids List
 
+Web view [here](https://beat-yt.github.io/Skids/)
+
 If you want to add some skid, just make a [pull request](https://github.com/Beat-YT/Skids/pulls)
 
 ## Bot
