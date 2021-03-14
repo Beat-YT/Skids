@@ -131,8 +131,15 @@
       "avatar": "487e1a0a8f2d36a5fcc789a187615b35",
       "bot": false,
       "created_at": 1615703727777
-    },  
-    {
+   },
+   {
+      "uid": "722632203187519551",
+      "tag": "Okie Boomer#0887",
+      "avatar": null,
+      "bot": false,
+      "created_at": 1615703870936
+   },
+   {
       "uid": "812086067711836211",
       "tag": "lua#6969",
       "avatar": "e36f8638ef503790b06d7cc5f5fbd793",
