@@ -1,0 +1,52 @@
+<html lang="en" style="text-align:center; font-family: Arial, Helvetica, sans-serif;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Skid</title>
+    <style>
+        .arial {
+            font-family: Arial, Helvetica, sans-serif
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Generate a Skid</h1>
+
+    <input class="arial" type="text" id="SkidId" min="18" placeholder="Skid Id" />
+    <br>
+    <br>
+    <button onclick="Generate()">Generate</button>
+    <br>
+    <br>
+    <br>
+    <p id="SkidBlock"
+        style="background-color: rgba(204, 204, 204, 0.7); text-align:left; display: inline-block; width:40%; height:50%;"></p>
+    <script>
+        function Generate() {
+            var http = new XMLHttpRequest();
+            http.onreadystatechange = function () {
+                if (this.status == 200 && this.readyState == 4) {
+                    var Json = JSON.parse(this.responseText)
+                    document.getElementById("SkidBlock").innerText = 
+                    JSON.stringify({
+                        "uid": Json.id,
+                        "tag": `${Json.username}#${Json.discriminator}`,
+                        "avatar": Json.avatar,
+                        "bot": false,
+                        "created_at": new Date().getTime()
+                    }, null,2)
+                }
+            };
+            
+            http.open("GET", "https://discordcors.herokuapp.com/https://discord.com/api/v8/users/" + document.getElementById('SkidId').value, true);
+            http.send();
+        }
+    </script>
+
+</body>
+
+</html>
