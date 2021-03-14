@@ -63,11 +63,11 @@
       "created_at": 1599002042
    },
    {
-   "uid": "517586951898136596",
-   "tag": "KliiM#8901",
-   "avatar": "61a553391de81edf3f09e5c501e87b6b",
-   "bot": false,
-   "created_at": 1615700218393
+      "uid": "517586951898136596",
+      "tag": "KliiM#8901",
+      "avatar": "61a553391de81edf3f09e5c501e87b6b",
+      "bot": false,
+      "created_at": 1615700218393
    },
    {
       "uid": "408732242123292672",
@@ -86,7 +86,7 @@
    {
       "uid": "800220098690285568",
       "tag": "ken \u2764#0001",
-      "avatar": "a_5c9b15192ef77c984ec0b73d737c53da",
+      "avatar": "a_45c51e6851c55f484fc480263de67c39",
       "bot": false,
       "created_at": 1610854138
    },
