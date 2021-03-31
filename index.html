@@ -103,6 +103,13 @@
                 skidprofile.appendChild(document.createElement('br'))
                 skidprofile.appendChild(document.createElement('br'))
                 skidprofile.appendChild(skidName)
+
+                if (getQueryVariable("ShowId")) {
+                    var IdDoc = document.createElement('p')
+                    IdDoc.innerText = "Id:" + element.uid;
+                    skidprofile.appendChild(IdDoc)
+                }
+
                 document.getElementById('skids').appendChild(skidprofile)
             });
         }
@@ -122,7 +129,7 @@
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(getQueryVariable("skid") || getQueryVariable("skids")))
                 if (!FilteredSkids[0]) {
                     var NoResult =  document.createElement('p');
-                    NoResult.innerText = "No results were found"
+                    NoResult.innerText = "Found no result"
                     document.getElementById('skids').appendChild(document.createElement('br'))
                     document.getElementById('skids').appendChild(document.createElement('br'))
 
@@ -146,13 +153,13 @@
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.uid == getQueryVariable("skidId"))
                 if (!FilteredSkids[0]) {
                     var NoResult =  document.createElement('p');
-                    NoResult.innerText = "No results were found"
+                    NoResult.innerText = "Found no result"
                     document.getElementById('skids').appendChild(document.createElement('br'))
                     document.getElementById('skids').appendChild(document.createElement('br'))
 
                     document.getElementById('skids').appendChild(NoResult)
                 }
-                
+
                 MakeSkids(FilteredSkids);
             }
             else {
