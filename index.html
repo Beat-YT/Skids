@@ -122,7 +122,7 @@
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(getQueryVariable("skid") || getQueryVariable("skids")))
                 if (!FilteredSkids[0]) {
                     var NoResult =  document.createElement('p');
-                    NoResult.innerText = "Found no result"
+                    NoResult.innerText = "No results were found"
                     document.getElementById('skids').appendChild(document.createElement('br'))
                     document.getElementById('skids').appendChild(document.createElement('br'))
 
@@ -146,7 +146,7 @@
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.uid == getQueryVariable("skidId"))
                 if (!FilteredSkids[0]) {
                     var NoResult =  document.createElement('p');
-                    NoResult.innerText = "Found no result"
+                    NoResult.innerText = "No results were found"
                     document.getElementById('skids').appendChild(document.createElement('br'))
                     document.getElementById('skids').appendChild(document.createElement('br'))
 
