@@ -41,6 +41,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         .arial {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -115,7 +120,14 @@
 
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(getQueryVariable("skid") || getQueryVariable("skids")))
+                if (!FilteredSkids[0]) {
+                    var NoResult =  document.createElement('p');
+                    NoResult.innerText = "Found no result"
+                    document.getElementById('skids').appendChild(document.createElement('br'))
+                    document.getElementById('skids').appendChild(document.createElement('br'))
 
+                    document.getElementById('skids').appendChild(NoResult)
+                }
                 MakeSkids(FilteredSkids);
             }
             else {
@@ -132,7 +144,15 @@
 
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                 var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.uid == getQueryVariable("skidId"))
+                if (!FilteredSkids[0]) {
+                    var NoResult =  document.createElement('p');
+                    NoResult.innerText = "Found no result"
+                    document.getElementById('skids').appendChild(document.createElement('br'))
+                    document.getElementById('skids').appendChild(document.createElement('br'))
 
+                    document.getElementById('skids').appendChild(NoResult)
+                }
+                
                 MakeSkids(FilteredSkids);
             }
             else {
