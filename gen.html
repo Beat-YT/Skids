@@ -1,0 +1,87 @@
+<html lang="en" style="text-align:center; font-family: Arial, Helvetica, sans-serif;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Skid</title>
+    <script src="https://kit.fontawesome.com/f9d14f89f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+    <h1>Generate a Skid</h1>
+
+    <input class="arial" type="text" id="SkidId" min="18" placeholder="Skid Id" />
+    <br>
+    <br>
+    <button class="button1" onclick="Generate()">Generate</button>
+    <br>
+    <br>
+    <br>
+    <noscript style="text-align: center;">You must enable Javascript to use this page</noscript>
+    <pre id="SkidBlock">
+    </pre>
+    <br>
+    <button id="copyButton" onclick="Copy()" class="button2" disabled>Copy <i class="fas fa-copy"></i></button>
+
+    <script>
+        function Generate() {
+            var http = new XMLHttpRequest();
+            http.onreadystatechange = function () {
+                if (this.status == 200 && this.readyState == 4) {
+                    document.getElementById('copyButton').disabled = false
+                    var Json = JSON.parse(this.responseText)
+                    document.getElementById("SkidBlock").innerText =
+                        JSON.stringify({
+                            "uid": Json.id,
+                            "tag": `${Json.username}#${Json.discriminator}`,
+                            "avatar": Json.avatar,
+                            "bot": false,
+                            "created_at": new Date().getTime()
+                        }, null, 2)
+                }
+                else if (this.status != 200 && this.readyState == 4) {
+                    try {
+                        var Json = JSON.parse(this.responseText)
+                        switch (Json.message) {
+                            case "You are being rate limited.":
+                                try {
+                                    alert(`You are being rate limited. Please retry in ${Json.retry_after.split('.')[0]} sec`)
+                                }
+                                catch {
+                                    alert(`You are being rate limited. Please retry in ${Json.retry_after} sec`)
+                                }
+                                break;
+                            case "Unknown User":
+                                alert('Unknown User')
+                                break;
+
+                            default:
+                                alert(Json.message)
+                        }
+                    } catch {
+                        alert(`Got ${this.status} form ${this.getResponseHeader('X-Final-Url') || thus.getResponseHeader('X-Request-Url') || this.responseURL}`)
+                    }
+                }
+            };
+
+            http.open("GET", "https://discordcors.herokuapp.com/https://discord.com/api/v8/users/" + document.getElementById('SkidId').value, true);
+            http.send();
+        }
+
+        function Copy() {
+            var input = document.createElement('textarea');
+            document.body.appendChild(input);
+            input.value =  document.getElementById("SkidBlock").innerText;
+            input.focus();
+            input.select();
+            document.execCommand('Copy');
+            input.remove();
+        }
+    </script>
+
+</body>
+
+</html>

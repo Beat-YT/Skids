@@ -1,0 +1,35 @@
+.pepega {
+    background-color: rgba(130, 130, 130, 0.4);
+    border: none;
+    color: white;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    margin: 9px 15px;
+    border-radius: 4px;
+}
+
+SkidUserName {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 128px;
+    background-color: rgba(130, 130, 130, 0.6);
+    max-height: 128px;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+}
