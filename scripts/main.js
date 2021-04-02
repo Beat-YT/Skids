@@ -16,10 +16,13 @@ function MakeSkids(array) {
         skidprofile.classList.add("pepega")
         skidprofile.id = element.uid
         var SkidPFP = document.createElement('img')
-        if (element.avatar != null) { SkidPFP.src = `https://cdn.discordapp.com/avatars/${element.uid}/${element.avatar}.png?size=128` }
-        else { SkidPFP.src = "https://cdn.discordapp.com/attachments/789297675790974996/819701180203794432/dd4dbc0016779df1378e7812eabaa04d.png?size=128" }
+        if (element.avatar != null) {
+            SkidPFP.src = `https://cdn.discordapp.com/avatars/${element.uid}/${element.avatar}.png?size=128`
+        } else {
+            SkidPFP.src = "https://cdn.discordapp.com/attachments/789297675790974996/819701180203794432/dd4dbc0016779df1378e7812eabaa04d.png?size=128"
+        }
         SkidPFP.id = `PFP_${element.uid}`
-        SkidPFP.onerror = function () {
+        SkidPFP.onerror = function() {
             document.getElementById(`PFP_${element.uid}`).src = "https://cdn.discordapp.com/attachments/789297675790974996/819701180203794432/dd4dbc0016779df1378e7812eabaa04d.png?size=128"
         }
         //<img src="img_avatar.png" alt="Avatar" style="width:200px">
@@ -41,8 +44,8 @@ function MakeSkids(array) {
 }
 
 if (getQueryVariable("ShowId")) {
-                document.getElementById("ShowIdthing").checked = true;
-       }
+    document.getElementById("ShowIdthing").checked = true;
+}
 
 var skidFiter = getQueryVariable("skid") || getQueryVariable("skids") || getQueryVariable("name");
 
@@ -57,7 +60,7 @@ if (skidFiter) {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
         var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(skidFiter) || x.tag.startsWith(skidFiter.toUpperCase()) || x.tag.startsWith(skidFiter.toLocaleLowerCase()))
         if (!FilteredSkids[0]) {
-            var NoResult =  document.createElement('p');
+            var NoResult = document.createElement('p');
             NoResult.innerText = "Found no result"
             document.getElementById('skids').appendChild(document.createElement('br'))
             document.getElementById('skids').appendChild(document.createElement('br'))
@@ -65,13 +68,11 @@ if (skidFiter) {
             document.getElementById('skids').appendChild(NoResult)
         }
         MakeSkids(FilteredSkids);
-    }
-    else {
+    } else {
         alert(xhttp.status + " " + xhttp.statusText);
     }
 
-}
-else if (getQueryVariable("skidId")) {
+} else if (getQueryVariable("skidId")) {
     var xhttp = new XMLHttpRequest();
 
     xhttp.open("GET", "https://raw.githubusercontent.com/Beat-YT/Skids/main/skids.json", false);
@@ -81,7 +82,7 @@ else if (getQueryVariable("skidId")) {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
         var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.uid == getQueryVariable("skidId"))
         if (!FilteredSkids[0]) {
-            var NoResult =  document.createElement('p');
+            var NoResult = document.createElement('p');
             NoResult.innerText = "Found no result"
             document.getElementById('skids').appendChild(document.createElement('br'))
             document.getElementById('skids').appendChild(document.createElement('br'))
@@ -90,17 +91,15 @@ else if (getQueryVariable("skidId")) {
         }
 
         MakeSkids(FilteredSkids);
-    }
-    else {
+    } else {
         alert(xhttp.status + " " + xhttp.statusText);
     }
 
-}
-else {
+} else {
 
 
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+    xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             MakeSkids(JSON.parse(xhttp.responseText));
         }
