@@ -40,6 +40,10 @@ function MakeSkids(array) {
     });
 }
 
+if (getQueryVariable("ShowId")) {
+                document.getElementById("ShowIdthing").checked = true;
+       }
+
 var skidFiter = getQueryVariable("skid") || getQueryVariable("skids") || getQueryVariable("name");
 
 if (skidFiter) {
