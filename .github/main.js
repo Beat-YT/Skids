@@ -1,3 +1,6 @@
+const fs = require('fs');
+
+console.log(fs.existsSync('./../skids.json'))
 try {
   JSON.parse('./../skids.json')
 } catch {
