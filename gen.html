@@ -32,15 +32,8 @@
             http.onreadystatechange = function () {
                 if (this.status == 200 && this.readyState == 4) {
                     document.getElementById('copyButton').disabled = false
-                    var Json = JSON.parse(this.responseText)
-                    document.getElementById("SkidBlock").innerText =
-                        JSON.stringify({
-                            "uid": Json.id,
-                            "tag": `${Json.username}#${Json.discriminator}`,
-                            "avatar": Json.avatar,
-                            "bot": false,
-                            "created_at": new Date().getTime()
-                        }, null, 2)
+                   // var Json = JSON.parse()
+                    document.getElementById("SkidBlock").innerText = this.responseText;
                 }
                 else if (this.status != 200 && this.readyState == 4) {
                     try {
