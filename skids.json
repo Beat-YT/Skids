@@ -260,7 +260,7 @@
   },
   {
     "uid": "627327064604672022",
-    "tag": "Gavin ᵈᵉᵛ#3577",
+    "tag": "Gavin#3577",
     "avatar": "d53da547c34cd9cddd0e9967c4dfb882",
     "bot": false,
     "created_at": "2019-09-28T02:13:47.375Z"
@@ -268,7 +268,7 @@
   {
     "uid": "723931978209951784",
     "tag": "Blaze()#7733",
-    "avatar": "01cfdfebbb204d5a4cbfa88bc485fb02",
+    "avatar": null,
     "bot": false,
     "created_at": "2020-06-20T16:07:13.611Z"
   },
@@ -485,7 +485,7 @@
   {
     "uid": "510839338813358082",
     "tag": "Plutonium#9200",
-    "avatar": "a500e9524f81cde1ccc6e20e3e3124cf",
+    "avatar": "0c5700b01f6068b6adb537f56a3cc713",
     "bot": false,
     "created_at": "2018-11-10T15:33:09.309Z"
   },
