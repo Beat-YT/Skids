@@ -23,7 +23,7 @@
   {
     "uid": "623208070171852844",
     "tag": "Refresh#0100",
-    "avatar": "15b607dd588039cad38b2eea901b85da",
+    "avatar": null,
     "bot": false,
     "created_at": "2019-09-16T17:26:22.575Z"
   },
@@ -121,7 +121,7 @@
   {
     "uid": "810566167592173659",
     "tag": "simak#0001",
-    "avatar": "a_2d21ead8be73b66e3262d77e5c6d6be2",
+    "avatar": "a_22c524181b4694307f7f32970f9cbb6d",
     "bot": false,
     "created_at": "2021-02-14T17:40:33.945Z"
   },
@@ -512,8 +512,8 @@
   },
   {
     "uid": "835583763147915284",
-    "tag": "Tyzra#0001",
-    "avatar": "a_717c02cfbbdc97a5f53934f39f18b1be",
+    "tag": "amys#9999",
+    "avatar": "3ff730067b70c668222931d6f6c19d10",
     "bot": false,
     "created_at": "2021-04-24T18:31:33.530Z"
   },
