@@ -7,6 +7,13 @@
     "created_at": "2020-03-09T16:51:48.451Z"
   },
   {
+  "uid": "839920351416025108",
+  "tag": "Milxnor#0101",
+  "avatar": "efc292a1bd216a6862e5d568bebde9a4",
+  "bot": false,
+  "created_at": "2021-05-06T17:43:36.743Z"
+  },
+  {
     "uid": "815907918699823114",
     "tag": "Deleted User 698baa9c#2965",
     "avatar": null,
@@ -579,5 +586,12 @@
   "avatar": "8a4949a45947038c501eddfc819de0a6",
   "bot": false,
   "created_at": "2020-01-02T20:40:00.737Z"
- }
+ },
+  {
+    "uid": "837407607235936347",
+    "tag": "Zaspx#9696",
+    "avatar": "a_9db69487aa5eb39cff08cf9456798693",
+    "bot": false,
+    "created_at": "2021-04-29T19:18:51.846Z"
+  }
 ]
