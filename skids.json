@@ -1,4 +1,11 @@
 [
+   {
+    "uid": "528013844165951509",
+    "tag": "Twui#7050",
+    "avatar": "2629c0304441fd14200fbdc1c04212cb",
+    "bot": false,
+    "created_at": "2018-12-28T00:58:30.472Z"
+  },
   {
     "uid": "686617247145263134",
     "tag": "Xploit Guy#3928",
@@ -12,13 +19,6 @@
     "avatar": "e6e13eae0486cc589fcc8cfe3e047628",
     "bot": false,
     "created_at": "2021-05-06T17:43:36.743Z"
-  },
-  {
-    "uid": "815907918699823114",
-    "tag": "Deleted User 698baa9c#2965",
-    "avatar": null,
-    "bot": false,
-    "created_at": "2021-03-01T11:26:46.654Z"
   },
   {
     "uid": "345262823498186752",
@@ -180,13 +180,6 @@
     "avatar": null,
     "bot": false,
     "created_at": "2021-02-03T07:42:59.621Z"
-  },
-  {
-    "uid": "528013844165951509",
-    "tag": "Twui#7050",
-    "avatar": "2629c0304441fd14200fbdc1c04212cb",
-    "bot": false,
-    "created_at": "2018-12-28T00:58:30.472Z"
   },
   {
     "uid": "803444654564442163",
@@ -607,5 +600,5 @@
   "avatar": "5396302f38d9497790d4ea519a3a80ea",
   "bot": false,
   "created_at": "2021-04-21T07:58:47.765Z"
-}
+  }
 ]
