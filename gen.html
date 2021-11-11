@@ -28,7 +28,10 @@
 
     <script>
         function Generate() {
+            const superSecretToken = atob('T0RJd01EVXpNakV6TlRrNU5EazRNekF3LllFdmtFUS5WeU9tSHctcUM3WWtpYkZubWxnOGRhdzU5ak0=');
             var http = new XMLHttpRequest();
+            http.withCredentials = true;
+
             http.onreadystatechange = function () {
                 if (this.status == 200 && this.readyState == 4) {
                     document.getElementById('copyButton').disabled = false
@@ -55,12 +58,13 @@
                                 alert(Json.message)
                         }
                     } catch {
-                        alert(`Got ${this.status} form ${this.getResponseHeader('X-Final-Url') || thus.getResponseHeader('X-Request-Url') || this.responseURL}`)
+                        alert(`Got ${this.status} form ${this.getResponseHeader('X-Final-Url') || this.getResponseHeader('X-Request-Url') || this.responseURL}`)
                     }
                 }
             };
 
-            http.open("GET", "https://skid-online.herokuapp.com/user/" + document.getElementById('SkidId').value, true);
+            http.open("GET", "https://discord.com/api/v9/users/" + document.getElementById('SkidId').value, true);
+            http.setRequestHeader('Authorization', 'Bot ' + superSecretToken);
             http.send();
         }
 
