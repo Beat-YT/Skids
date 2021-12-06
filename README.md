@@ -1,4 +1,5 @@
-LOOKING FOR NEW CONTRIBUTORS
+### LOOKING FOR NEW CONTRIBUTORS ###
+dm me on discord
 
 # Skids
 A Fortnite Modding Community Skid List.
