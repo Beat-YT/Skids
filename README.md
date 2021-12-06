@@ -1,3 +1,5 @@
+LOOKING FOR NEW CONTRIBUTORS
+
 # Skids
 A Fortnite Modding Community Skid List.
 
