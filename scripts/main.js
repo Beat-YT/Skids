@@ -19,7 +19,7 @@ function MakeSkids(array) {
         if (element.avatar != null) {
             SkidPFP.src = `https://cdn.discordapp.com/avatars/${element.uid}/${element.avatar}.png?size=128`
         } else {
-            SkidPFP.src = "https://cdn.discordapp.com/attachments/789297675790974996/819701180203794432/dd4dbc0016779df1378e7812eabaa04d.png?size=128"
+            SkidPFP.src = `https://cdn.discordapp.com/embed/avatars/${element.tag.split("#")[1] % 5}.png?size=128`
         }
         SkidPFP.id = `PFP_${element.uid}`
         SkidPFP.onerror = function() {
