@@ -630,25 +630,31 @@
     "created_at": "2021-06-02T23:45:22.274Z"
   },
   {
-  "uid": "934127371848646717",
-  "tag": "egator6#0001",
-  "avatar": "2ad7409238cbd4f7eae40d0b5019c059",
-  "bot": false,
-  "created_at": "2018-09-08T13:04:33.092Z"
-},
+    "uid": "934127371848646717",
+    "tag": "egator6#0001",
+    "avatar": "2ad7409238cbd4f7eae40d0b5019c059",
+    "bot": false,
+    "created_at": "2018-09-08T13:04:33.092Z"
+  },
   {
-  "uid": "769859899940405309",
-  "tag": "🎄erox🎄#7781",
-  "avatar": "a_27de78c2538956944eb4c7fae3f5dd03",
-  "bot": false,
-  "created_at": "2020-10-25T09:48:23.451Z"
-},
-{
-  "uid": "844680229506514974",
-  "tag": "NotTImDeve#7066",
-  "avatar": "4c99ae7e9618d4dcdc9d365ee50254a3",
-  "bot": false,
-  "created_at": "2021-05-19T20:57:40.114Z"
-}
-  
+    "uid": "769859899940405309",
+    "tag": "🎄erox🎄#7781",
+    "avatar": "a_27de78c2538956944eb4c7fae3f5dd03",
+    "bot": false,
+    "created_at": "2020-10-25T09:48:23.451Z"
+  },
+  {
+    "uid": "844680229506514974",
+    "tag": "NotTImDeve#7066",
+    "avatar": "4c99ae7e9618d4dcdc9d365ee50254a3",
+    "bot": false,
+    "created_at": "2021-05-19T20:57:40.114Z"
+  },
+  {
+    "uid": "86262214066970624",
+    "tag": "Jaren#0001",
+    "avatar": "12081330433e5cf973d8a3457fdba5f3",
+    "bot": false,
+    "created_at": "2015-08-27T00:55:14.000Z"
+  }
 ]
