@@ -1,109 +1,61 @@
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    console.log('Query variable %s not found', variable);
+function errorPfp(imgid, id) {
+    document.getElementById(`imageBox${imgid}`).src = "https://cdn.discordapp.com/embed/avatars/" + id % 5 + ".png";
 }
 
 function MakeSkids(array) {
-    array.forEach(element => {
-        var skidprofile = document.createElement('div')
-        skidprofile.classList.add("pepega")
-        skidprofile.id = element.uid
-        var SkidPFP = document.createElement('img')
-        if (element.avatar != null) {
-            SkidPFP.src = `https://cdn.discordapp.com/avatars/${element.uid}/${element.avatar}.png?size=128`
-        } else {
-            SkidPFP.src = `https://cdn.discordapp.com/embed/avatars/${element.tag.split("#")[1] % 5}.png?size=128`
-        }
-        SkidPFP.id = `PFP_${element.uid}`
-        SkidPFP.onerror = function() {
-            document.getElementById(`PFP_${element.uid}`).src = "https://cdn.discordapp.com/embed/avatars/0.png?size=128"
-        }
-        //<img src="img_avatar.png" alt="Avatar" style="width:200px">
-        var skidName = document.createElement('SkidUserName')
-        skidName.innerText = element.tag
-        skidprofile.appendChild(SkidPFP)
-        skidprofile.appendChild(document.createElement('br'))
-        skidprofile.appendChild(document.createElement('br'))
-        skidprofile.appendChild(skidName)
+    let html = "";
+    i = 0;
+    const showDiscord = document.getElementById("ShowDiscord").checked;
+    const searchQuery = document.getElementById("Search").value;
+    console.log(searchQuery);
+    array.forEach(skid => {
+        if (skid.uid.toLowerCase().includes(searchQuery.toLowerCase()) || skid.tag.toLowerCase().includes(searchQuery.toLowerCase())) {
+            let skidPfp = "";
+            if (skidPfp != null) {
+                skidPfp = `https://cdn.discordapp.com/avatars/${skid.uid}/${skid.avatar}.png?size=128`;
+            }
+            let tag = skid.tag.split('#')[1];
+            let imageBoxID = `imageBox${i}`;
 
-        if (getQueryVariable("ShowId")) {
-            var IdDoc = document.createElement('p')
-            IdDoc.innerText = "Id:" + element.uid;
-            skidprofile.appendChild(IdDoc)
+            let discordID = "";
+            if (showDiscord == true) {
+                discordID = skid.uid;
+            }
+            html += `<div class="card text-bg-dark" style="margin:1px">
+        <div class="card-body">
+        <img id=${imageBoxID} src="${skidPfp}" style="border-radius:50%" class="card-img-top" onerror='errorPfp(` + i + `,` + tag + `)');">
+            <h5 class="card-title">${skid.tag}</h5>
+            <p class="card-text"><a target="_blank" href="https://discord.com/users/${discordID}">${discordID}</a></p>
+        </div>
+    </div>`;
+            i++;
         }
-
-        document.getElementById('skids').appendChild(skidprofile)
     });
+    document.getElementById("skids").innerHTML = html;
+
 }
+let skids = [];
 
-if (getQueryVariable("ShowId")) {
-    document.getElementById("ShowIdthing").checked = true;
-}
+function update() {
 
-var skidFiter = getQueryVariable("skid") || getQueryVariable("skids") || getQueryVariable("name");
-
-if (skidFiter) {
-    document.getElementById("SkidFilter").value = skidFiter
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("GET", "https://raw.githubusercontent.com/Beat-YT/Skids/main/skids.json", false);
-    xhttp.send();
-
-
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-        var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(skidFiter) || x.tag.startsWith(skidFiter.toUpperCase()) || x.tag.startsWith(skidFiter.toLocaleLowerCase()))
-        if (!FilteredSkids[0]) {
-            var NoResult = document.createElement('p');
-            NoResult.innerText = "Found no result"
-            document.getElementById('skids').appendChild(document.createElement('br'))
-            document.getElementById('skids').appendChild(document.createElement('br'))
-
-            document.getElementById('skids').appendChild(NoResult)
-        }
-        MakeSkids(FilteredSkids);
-    } else {
-        alert(xhttp.status + " " + xhttp.statusText);
+    if (skids.length == 0) {
+        console.log("Fetching these stupid ass script kiddies");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let result = JSON.parse(xhttp.responseText);
+                console.log("Found " + result.length + " losers");
+                MakeSkids(result);
+            }
+        };
+        xhttp.open("GET", "https://raw.githubusercontent.com/Beat-YT/Skids/main/skids.json", true);
+        xhttp.send();
+    }
+    else {
+        MakeSkids(skids);
     }
 
-} else if (getQueryVariable("skidId")) {
-    var xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "https://raw.githubusercontent.com/Beat-YT/Skids/main/skids.json", false);
-    xhttp.send();
-
-
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-        var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.uid == getQueryVariable("skidId"))
-        if (!FilteredSkids[0]) {
-            var NoResult = document.createElement('p');
-            NoResult.innerText = "Found no result"
-            document.getElementById('skids').appendChild(document.createElement('br'))
-            document.getElementById('skids').appendChild(document.createElement('br'))
-
-            document.getElementById('skids').appendChild(NoResult)
-        }
-
-        MakeSkids(FilteredSkids);
-    } else {
-        alert(xhttp.status + " " + xhttp.statusText);
-    }
-
-} else {
-
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            MakeSkids(JSON.parse(xhttp.responseText));
-        }
-    };
-    xhttp.open("GET", "https://raw.githubusercontent.com/Beat-YT/Skids/main/skids.json", true);
-    xhttp.send();
 }
+
+update();
