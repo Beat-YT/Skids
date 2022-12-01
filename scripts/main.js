@@ -21,13 +21,13 @@ function MakeSkids(array) {
             if (showDiscord == true) {
                 discordID = skid.uid;
             }
-            html += `<div class="card text-bg-dark" style="margin:1px">
+            html += `<div class="col"><div class="card text-bg-dark" style="margin:1px;width:100%;height:100%">
         <div class="card-body">
-        <img id=${imageBoxID} src="${skidPfp}" style="border-radius:50%" class="card-img-top" onerror='errorPfp(` + i + `,` + tag + `)');">
+        <img id=${imageBoxID} src="${skidPfp}" style="border-radius:50%;width:50%;height:auto" class="card-img-top" onerror='errorPfp(` + i + `,` + tag + `)');">
             <h5 class="card-title">${skid.tag}</h5>
             <p class="card-text"><a target="_blank" href="https://discord.com/users/${discordID}">${discordID}</a></p>
         </div>
-    </div>`;
+    </div></div>`;
             i++;
         }
     });
